@@ -24,7 +24,7 @@
   --color-tag-text: #5eead4;
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
 
   /* Spacing */
   --space-xs: 4px;

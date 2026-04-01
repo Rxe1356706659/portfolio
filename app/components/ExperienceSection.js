@@ -3,7 +3,7 @@ import { experiences, siteConfig } from "@/data/content";
 export default function ExperienceSection() {
   return (
     <section id="experience" className="section">
-      <h2 className="section__label">Experience</h2>
+      <h2 className="section__label">工作经历</h2>
       <div className="experience__list">
         {experiences.map((exp, i) => (
           <a
@@ -49,7 +49,7 @@ export default function ExperienceSection() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Full Résumé <span className="arrow">→</span>
+          查看完整简历 <span className="arrow">→</span>
         </a>
       )}
     </section>

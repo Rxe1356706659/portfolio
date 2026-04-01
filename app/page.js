@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <SpotlightEffect />
       <div className="main-container">
-        {/* ===== Left Panel (Sticky) ===== */}
+        {/* ===== 左侧面板 (固定) ===== */}
         <header className="left-panel">
           <div className="left-panel__header">
             <h1 className="left-panel__name">
@@ -25,21 +25,22 @@ export default function Home() {
           <SocialLinks />
         </header>
 
-        {/* ===== Right Panel (Scrollable) ===== */}
+        {/* ===== 右侧面板 (可滚动) ===== */}
         <main className="right-panel">
           <AboutSection />
           <ExperienceSection />
           <ProjectsSection />
           <VideosSection />
 
-          {/* Footer */}
+          {/* 页脚 */}
           <footer className="footer">
             <p>
-              Loosely designed in <a href="https://figma.com" target="_blank" rel="noopener noreferrer">Figma</a> and
-              coded in <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>.
-              Built with <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a> and
-              deployed with <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a>.
-              All text is set in the <a href="https://rsms.me/inter/" target="_blank" rel="noopener noreferrer">Inter</a> typeface.
+              使用 <a href="https://figma.com" target="_blank" rel="noopener noreferrer">Figma</a> 设计，
+              在 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VS Code</a> 中编码。
+              基于 <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a> 构建，
+              部署于 <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel</a>。
+              字体使用 <a href="https://rsms.me/inter/" target="_blank" rel="noopener noreferrer">Inter</a> 与{" "}
+              <a href="https://fonts.google.com/noto/specimen/Noto+Sans+SC" target="_blank" rel="noopener noreferrer">Noto Sans SC</a>。
             </p>
           </footer>
         </main>

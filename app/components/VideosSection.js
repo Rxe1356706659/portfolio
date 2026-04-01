@@ -9,7 +9,7 @@ export default function VideosSection() {
 
   return (
     <section id="videos" className="section">
-      <h2 className="section__label">AI Videos</h2>
+      <h2 className="section__label">视频作品</h2>
       <div className="videos__grid">
         {videos.map((video) => (
           <div

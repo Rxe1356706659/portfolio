@@ -36,7 +36,7 @@ export default function VideoModal({ video, onClose }) {
               Your browser does not support the video tag.
             </video>
           ) : (
-            <span>Video will be available soon — upload via admin panel</span>
+            <span>视频即将上线 — 请通过管理后台上传</span>
           )}
         </div>
         <div className="modal-info">

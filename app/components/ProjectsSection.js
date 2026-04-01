@@ -3,7 +3,7 @@ import { projects } from "@/data/content";
 export default function ProjectsSection() {
   return (
     <section id="projects" className="section">
-      <h2 className="section__label">Projects</h2>
+      <h2 className="section__label">项目作品</h2>
       <div className="projects__list">
         {projects
           .filter((p) => p.featured)
