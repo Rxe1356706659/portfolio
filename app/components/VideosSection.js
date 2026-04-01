@@ -18,7 +18,15 @@ export default function VideosSection() {
             onClick={() => setActiveVideo(video)}
           >
             <div className="video__thumbnail">
-              {video.thumbnail ? (
+              {video.videoUrl ? (
+                <video
+                  src={video.videoUrl}
+                  preload="metadata"
+                  muted
+                  playsInline
+                  aria-label={video.title}
+                />
+              ) : video.thumbnail ? (
                 <img src={video.thumbnail} alt={video.title} loading="lazy" />
               ) : (
                 <span className="video__thumbnail-placeholder">🎬</span>

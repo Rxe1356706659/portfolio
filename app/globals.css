@@ -588,7 +588,8 @@ body {
   position: relative;
 }
 
-.video__thumbnail img {
+.video__thumbnail img,
+.video__thumbnail video {
   width: 100%;
   height: 100%;
   object-fit: cover;
