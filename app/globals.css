@@ -1,9 +1,6 @@
 /* ============================================
-   Design System — brittanychiang.com inspired
-   极简 · 暗色 · 左右分栏 · 内容驱动
+   Design System — 上下布局 · 暗色 · 顶部固定
    ============================================ */
-
-/* --- Google Fonts (loaded via layout.js) --- */
 
 /* === Design Tokens === */
 :root {
@@ -37,9 +34,8 @@
   --space-4xl: 96px;
 
   /* Sizes */
-  --max-width: 1280px;
-  --left-panel-width: 42%;
-  --right-panel-width: 58%;
+  --max-width: 960px;
+  --header-height: auto;
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -90,113 +86,126 @@ body {
   transition: background 0.15s ease;
 }
 
-/* === Main Layout: Left Fixed + Right Scroll === */
-.main-container {
-  position: relative;
-  z-index: 2;
+/* =============================================
+   TOP HEADER — 固定在顶部
+   ============================================= */
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.top-header__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-lg);
+  padding: var(--space-2xl) var(--space-lg) var(--space-lg);
   display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.top-header__brand {
+  display: flex;
+  align-items: baseline;
   gap: var(--space-lg);
 }
 
-/* --- Left Panel (sticky) --- */
-.left-panel {
-  position: sticky;
-  top: 0;
-  width: var(--left-panel-width);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: var(--space-4xl) 0;
-}
-
-.left-panel__header {
-  display: flex;
-  flex-direction: column;
-}
-
-.left-panel__name {
-  font-size: 48px;
+.top-header__name {
+  font-size: 32px;
   font-weight: 700;
   color: var(--color-text);
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   line-height: 1.1;
-  margin-bottom: var(--space-sm);
+  white-space: nowrap;
 }
 
-.left-panel__name a {
+.top-header__name a {
   text-decoration: none;
   color: inherit;
 }
 
-.left-panel__title {
-  font-size: 19px;
+.top-header__title {
+  font-size: 16px;
   font-weight: 500;
-  color: var(--color-text);
-  margin-bottom: var(--space-md);
-  line-height: 1.3;
+  color: var(--color-accent);
+  white-space: nowrap;
 }
 
-.left-panel__tagline {
-  font-size: 15px;
+.top-header__tagline {
+  font-size: 14px;
   color: var(--color-text-secondary);
   line-height: 1.6;
-  max-width: 320px;
+  max-width: 600px;
 }
 
-/* --- Navigation --- */
+.top-header__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin-top: var(--space-xs);
+}
+
+/* --- Navigation (horizontal) --- */
 .nav {
-  margin-top: var(--space-3xl);
+  flex-shrink: 0;
 }
 
 .nav__list {
   list-style: none;
   display: flex;
-  flex-direction: column;
   gap: var(--space-xs);
 }
 
 .nav__link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-sm) 0;
+  padding: var(--space-sm) var(--space-md);
   text-decoration: none;
   color: var(--color-text-muted);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color var(--transition-normal);
-  cursor: pointer;
-}
-
-.nav__indicator {
-  display: inline-block;
-  width: 32px;
-  height: 1px;
-  background: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
   transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
 }
 
-.nav__link:hover,
-.nav__link.active {
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
+  transition: width var(--transition-normal);
+}
+
+.nav__link:hover {
   color: var(--color-text);
+  background: rgba(148, 163, 184, 0.06);
 }
 
-.nav__link:hover .nav__indicator,
-.nav__link.active .nav__indicator {
-  width: 64px;
-  background: var(--color-text);
+.nav__link.active {
+  color: var(--color-accent);
 }
 
-/* --- Social Links --- */
+.nav__link.active::after {
+  width: 60%;
+}
+
+/* --- Social Links (horizontal) --- */
 .social-links {
   display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   align-items: center;
 }
 
@@ -209,39 +218,50 @@ body {
 }
 
 .social-link:hover {
-  color: var(--color-text);
+  color: var(--color-accent);
 }
 
-/* --- Right Panel (scrollable) --- */
-.right-panel {
-  width: var(--right-panel-width);
-  padding: var(--space-4xl) 0;
+/* =============================================
+   MAIN CONTENT — 主内容区
+   ============================================= */
+.main-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
 }
 
 /* === Sections === */
 .section {
   margin-bottom: var(--space-4xl);
-  scroll-margin-top: var(--space-4xl);
+  scroll-margin-top: 200px;
 }
 
 .section:last-child {
   margin-bottom: var(--space-2xl);
 }
 
-/* Section labels (mobile only) */
 .section__label {
-  display: none;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  letter-spacing: 0.5px;
   color: var(--color-text);
   margin-bottom: var(--space-xl);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  padding: var(--space-md) 0;
-  background: var(--color-bg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.section__label::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
 /* --- About Section --- */
@@ -252,7 +272,8 @@ body {
 }
 
 .about__paragraph {
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: 15px;
 }
 
 .about__paragraph a,
@@ -307,15 +328,6 @@ body {
   position: relative;
 }
 
-.experience__item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  transition: all var(--transition-normal);
-}
-
 .experience__item:hover {
   background: var(--color-card-hover);
   box-shadow: 0 0 0 1px var(--color-border);
@@ -330,7 +342,6 @@ body {
   font-weight: 600;
   color: var(--color-text-muted);
   letter-spacing: 0.5px;
-  text-transform: uppercase;
   padding-top: 4px;
   white-space: nowrap;
 }
@@ -534,27 +545,32 @@ body {
   color: var(--color-text-secondary);
 }
 
-/* --- Videos Section --- */
+/* =============================================
+   VIDEOS SECTION — 四宫格
+   ============================================= */
 .videos__grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
 }
 
 .video__card {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: var(--space-lg);
-  padding: var(--space-lg);
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
   transition: all var(--transition-normal);
   cursor: pointer;
-  color: inherit;
 }
 
 .video__card:hover {
-  background: var(--color-card-hover);
-  box-shadow: 0 0 0 1px var(--color-border);
+  border-color: var(--color-text-muted);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(94, 234, 212, 0.06);
 }
 
 .video__card:hover .video__title {
@@ -562,22 +578,14 @@ body {
 }
 
 .video__thumbnail {
-  width: 140px;
-  height: 80px;
-  border-radius: 6px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--color-bg-alt);
-  border: 2px solid var(--color-border);
-  transition: border-color var(--transition-normal);
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  flex-shrink: 0;
-}
-
-.video__card:hover .video__thumbnail {
-  border-color: var(--color-text-muted);
 }
 
 .video__thumbnail img {
@@ -588,38 +596,41 @@ body {
 
 .video__play-icon {
   position: absolute;
-  width: 36px;
-  height: 36px;
-  background: rgba(0, 0, 0, 0.6);
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(4px);
   transition: all var(--transition-normal);
+  border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .video__card:hover .video__play-icon {
   background: var(--color-accent);
   color: var(--color-bg);
-  transform: scale(1.1);
+  transform: scale(1.15);
+  border-color: transparent;
 }
 
 .video__play-icon svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   margin-left: 2px;
 }
 
 .video__thumbnail-placeholder {
-  font-size: 32px;
-  opacity: 0.3;
+  font-size: 40px;
+  opacity: 0.25;
 }
 
 .video__content {
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .video__year {
@@ -630,7 +641,7 @@ body {
 }
 
 .video__title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.3;
@@ -638,9 +649,13 @@ body {
 }
 
 .video__description {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--color-text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* --- Video Modal --- */
@@ -726,10 +741,13 @@ body {
 
 /* --- Footer --- */
 .footer {
-  padding: var(--space-xl) var(--space-lg);
+  margin-top: var(--space-3xl);
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-border);
   font-size: 13px;
   color: var(--color-text-muted);
   line-height: 1.8;
+  text-align: center;
 }
 
 .footer a {
@@ -755,41 +773,48 @@ body {
 }
 
 /* === Responsive === */
-@media (max-width: 1024px) {
-  .main-container {
+@media (max-width: 768px) {
+  .top-header__inner {
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+  }
+
+  .top-header__brand {
     flex-direction: column;
-    padding: 0 var(--space-lg);
+    gap: var(--space-xs);
   }
 
-  .left-panel {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: var(--space-2xl) 0 0;
+  .top-header__name {
+    font-size: 24px;
   }
 
-  .nav {
-    display: none;
+  .top-header__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
   }
 
-  .social-links {
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-lg);
+  .nav__list {
+    flex-wrap: wrap;
   }
 
-  .right-panel {
-    width: 100%;
-    padding: 0 0 var(--space-2xl);
+  .nav__link {
+    font-size: 12px;
+    padding: var(--space-xs) var(--space-sm);
   }
 
-  .section__label {
-    display: block;
+  .main-content {
+    padding: var(--space-xl) var(--space-md) var(--space-lg);
   }
 
   .section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 260px;
   }
 
+  .section__label {
+    font-size: 18px;
+  }
+
+  /* Experience → 单列 */
   .experience__item {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
@@ -799,34 +824,7 @@ body {
     font-size: 11px;
   }
 
-  .project__card {
-    grid-template-columns: 80px 1fr;
-  }
-
-  .project__thumbnail {
-    width: 80px;
-    height: 56px;
-  }
-
-  .video__card {
-    grid-template-columns: 120px 1fr;
-  }
-
-  .video__thumbnail {
-    width: 120px;
-    height: 68px;
-  }
-}
-
-@media (max-width: 640px) {
-  .left-panel__name {
-    font-size: 36px;
-  }
-
-  .left-panel__title {
-    font-size: 16px;
-  }
-
+  /* Projects → 单列 */
   .project__card {
     grid-template-columns: 1fr;
   }
@@ -836,17 +834,27 @@ body {
     height: 140px;
   }
 
-  .video__card {
+  /* Videos → 单列 */
+  .videos__grid {
     grid-template-columns: 1fr;
-  }
-
-  .video__thumbnail {
-    width: 100%;
-    height: 180px;
   }
 
   .modal-content {
     border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-header__name {
+    font-size: 20px;
+  }
+
+  .top-header__title {
+    font-size: 14px;
+  }
+
+  .top-header__tagline {
+    font-size: 13px;
   }
 }
 

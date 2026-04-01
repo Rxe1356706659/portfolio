@@ -20,7 +20,7 @@ export default function Navigation() {
             setActiveSection(id);
           }
         },
-        { rootMargin: "-40% 0px -55% 0px" }
+        { rootMargin: "-30% 0px -65% 0px" }
       );
 
       observer.observe(el);
@@ -39,7 +39,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="nav" aria-label="In-page navigation">
+    <nav className="nav" aria-label="页面导航">
       <ul className="nav__list">
         {navItems.map((item) => (
           <li key={item.id}>
@@ -48,7 +48,6 @@ export default function Navigation() {
               className={`nav__link ${activeSection === item.id ? "active" : ""}`}
               onClick={(e) => handleClick(e, item.id)}
             >
-              <span className="nav__indicator" />
               <span>{item.label}</span>
             </a>
           </li>
