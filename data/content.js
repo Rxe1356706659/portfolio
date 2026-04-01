@@ -121,12 +121,12 @@ export const projects = [
 export const videos = [
   {
     id: "v1",
-    title: "塑身裤 TVC — 热力科技",
-    description: "AI 生成的商业广告，展示蜂窝热力激活技术，搭配电影级灯光与微粒特效。",
-    thumbnail: null, // 替换为视频封面
-    videoUrl: null,  // 替换为视频文件URL
+    title: "怪兽派对 — AI 动画短片",
+    description: "全 AI 生成的怪兽主题动画短片，从分镜到成片完整制作流程，展示 AI 视频生成的叙事能力。",
+    thumbnail: null,
+    videoUrl: "/uploads/videos/monster-party.mp4",
     year: "2026",
-    tags: ["Seedance 2.0", "TVC", "产品"],
+    tags: ["AI 动画", "短片", "全流程"],
   },
   {
     id: "v2",
