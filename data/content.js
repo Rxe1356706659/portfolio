@@ -130,12 +130,12 @@ export const videos = [
   },
   {
     id: "v2",
-    title: "品牌故事 — 欧洲市场",
-    description: "面向欧洲受众的生活方式品牌视频，AI 生成的自然光场景与极简美学。",
+    title: "雅诗兰黛小棕瓶 — AI 品牌广告",
+    description: "AI 生成的雅诗兰黛小棕瓶高端品牌广告，从花朵绽放到精华滴落，电影级视觉叙事。",
     thumbnail: null,
-    videoUrl: null,
+    videoUrl: "/uploads/videos/estee-lauder.mp4",
     year: "2026",
-    tags: ["Runway Gen-3", "品牌", "生活方式"],
+    tags: ["AI 广告", "品牌", "美妆"],
   },
   {
     id: "v3",
