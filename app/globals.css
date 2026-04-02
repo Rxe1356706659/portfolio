@@ -86,6 +86,49 @@ body {
   transition: background 0.15s ease;
 }
 
+/* === Background Decorative Glow Orbs === */
+.bg-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0;
+  animation: glowFadeIn 2.5s ease forwards;
+}
+
+.bg-glow--teal {
+  width: 700px;
+  height: 700px;
+  top: -200px;
+  right: -150px;
+  background: rgba(94, 234, 212, 0.25);
+  animation-delay: 0.3s;
+}
+
+.bg-glow--purple {
+  width: 600px;
+  height: 600px;
+  bottom: 15%;
+  left: -200px;
+  background: rgba(124, 58, 237, 0.2);
+  animation-delay: 0.8s;
+}
+
+.bg-glow--blue {
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  right: -120px;
+  background: rgba(56, 189, 248, 0.15);
+  animation-delay: 1.2s;
+}
+
+@keyframes glowFadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 /* =============================================
    TOP HEADER — 固定在顶部
    ============================================= */
@@ -140,6 +183,19 @@ body {
   color: var(--color-text-secondary);
   line-height: 1.6;
   max-width: 600px;
+}
+
+.top-header__contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.top-header__contact-divider {
+  opacity: 0.3;
 }
 
 .top-header__bottom {
@@ -312,7 +368,7 @@ body {
 .experience__list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-md);
 }
 
 .experience__item {
@@ -320,17 +376,22 @@ body {
   grid-template-columns: 120px 1fr;
   gap: var(--space-lg);
   padding: var(--space-lg);
-  border-radius: 8px;
+  border-radius: 12px;
   transition: all var(--transition-normal);
   cursor: pointer;
   text-decoration: none;
   color: inherit;
   position: relative;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
 }
 
 .experience__item:hover {
-  background: var(--color-card-hover);
-  box-shadow: 0 0 0 1px var(--color-border);
+  border-color: var(--color-text-muted);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(94, 234, 212, 0.06);
 }
 
 .experience__item:hover .experience__title {
@@ -459,7 +520,7 @@ body {
 .projects__list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-md);
 }
 
 .project__card {
@@ -467,16 +528,21 @@ body {
   grid-template-columns: 100px 1fr;
   gap: var(--space-lg);
   padding: var(--space-lg);
-  border-radius: 8px;
+  border-radius: 12px;
   transition: all var(--transition-normal);
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
 }
 
 .project__card:hover {
-  background: var(--color-card-hover);
-  box-shadow: 0 0 0 1px var(--color-border);
+  border-color: var(--color-text-muted);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(94, 234, 212, 0.06);
 }
 
 .project__card:hover .project__title {

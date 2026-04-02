@@ -12,7 +12,10 @@ export default function Home() {
     <>
       <SpotlightEffect />
 
-      {/* ===== 顶部固定栏 ===== */}
+      {/* ===== 背景装饰光晕 ===== */}
+      <div className="bg-glow bg-glow--teal" />
+      <div className="bg-glow bg-glow--purple" />
+      <div className="bg-glow bg-glow--blue" />
       <header className="top-header">
         <div className="top-header__inner">
           <div className="top-header__brand">
@@ -21,10 +24,13 @@ export default function Home() {
             </h1>
             <p className="top-header__title">{siteConfig.title}</p>
           </div>
-          <p className="top-header__tagline">{siteConfig.tagline}</p>
+          <div className="top-header__contact">
+            <span>{siteConfig.tagline}</span>
+            <span className="top-header__contact-divider">|</span>
+            <span>邮箱：{siteConfig.email}</span>
+          </div>
           <div className="top-header__bottom">
             <Navigation />
-            <SocialLinks />
           </div>
         </div>
       </header>

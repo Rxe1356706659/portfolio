@@ -3,11 +3,11 @@
 // ============================================
 
 export const siteConfig = {
-  name: "Your Name",
-  title: "AI 创意总监",
-  tagline: "我专注于 AI 驱动的视频制作与数字体验设计，用技术连接创意与叙事。",
+  name: "钟志霞",
+  title: "求职意向：AI视频创作",
+  tagline: "联系电话：15819514582",
   resumeUrl: "/resume.pdf",
-  email: "hello@example.com",
+  email: "1755721712@qq.com",
 };
 
 export const navItems = [
@@ -30,7 +30,7 @@ export const socialLinks = [
   },
   {
     name: "邮箱",
-    url: "mailto:hello@example.com",
+    url: "mailto:1755721712@qq.com",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
   },
   {
@@ -41,40 +41,40 @@ export const socialLinks = [
 ];
 
 export const aboutContent = [
-  "我是一名创意技术人，专注于 AI 驱动的视频制作与数字品牌体验设计。我的工作处于人工智能、视觉叙事与跨境电商的交汇点。",
-  "目前，我在一家科技公司主导 AI 整合项目，利用 Seedance、Runway、Midjourney 等前沿工具制作高端商业内容，构建从创意概念到成品视频的自动化工作流。",
-  "我的专业领域涵盖 AI 视频生成、提示词工程、国际市场品牌策略以及全栈 Web 开发。我坚信技术不仅是工具，更是创作的伙伴。",
+  "熟练掌握 Gemini、Nono Banana、即梦等多款 AI 视频生成与大模型工具，能独立完成 AI 短视频从脚本、素材生成到后期剪辑的全流程制作。",
+  "工具上手快、执行力强，做事细心负责，对画面质感与成片效果有明确追求。",
+  "目前可快速到岗，希望在深圳长期稳定从事 AI 视频相关工作，持续深耕并为团队高效产出优质内容。",
 ];
 
 export const experiences = [
   {
-    period: "2024 — 至今",
-    title: "AI 创意总监",
-    company: "科技公司",
+    period: "2022.6 — 2024.2",
+    title: "文员",
+    company: "易买车汽车销售中心",
     companyUrl: "#",
     description:
-      "主导国际电商品牌的 AI 视频制作流程。负责分镜设计、提示词工程与后期制作，产出 TVC 级别的 AI 生成广告。搭建自动化工作流，将制作周期缩短 80%。",
-    tags: ["AI 视频", "Seedance", "Runway", "提示词工程", "自动化"],
+      "负责来访客户接待、咨询及引见工作；根据招聘计划组织开展招聘，办理员工入职、调动、离职手续，录入更新人事档案。统计业务部门人员出勤并报备，汇总、整理、核对考勤资料；负责办公室物品采购及固定资产登记、跟踪管理。",
+    tags: ["客户接待", "人事管理", "考勤统计", "资产管理"],
     links: [],
   },
   {
-    period: "2022 — 2024",
-    title: "数字营销经理",
-    company: "跨境电商",
+    period: "2019.8 — 2022.5",
+    title: "前台",
+    company: "花生好车",
     companyUrl: "#",
     description:
-      "管理跨平台营销活动，覆盖 Amazon、Shopify 及独立站。制定面向欧美市场的内容策略，将 AI 工具融入创意工作流，实现内容的快速迭代。",
-    tags: ["电商", "数字营销", "内容策略", "Shopify", "Amazon"],
+      "负责来访客户接待、登记、引见，介绍相关业务，严格执行接待规范，保持良好礼节礼貌。接听前台热线，做好来电咨询，认真记录重要事项并及时传达。负责公司信件、报刊、快递的收发、登记及转递工作。",
+    tags: ["客户接待", "电话咨询", "行政事务", "信件管理"],
     links: [],
   },
   {
-    period: "2020 — 2022",
-    title: "项目经理",
-    company: "技术解决方案公司",
+    period: "2016.11 — 2019.6",
+    title: "行政助理",
+    company: "华益诚资产管理有限公司",
     companyUrl: "#",
     description:
-      "协调跨职能团队交付 Web 应用与数字平台。引入敏捷开发方法与自动化部署流水线，负责企业级解决方案的客户关系维护与项目范围管理。",
-    tags: ["项目管理", "敏捷开发", "Web 开发", "CI/CD"],
+      "负责前台电话接听、转接及来电咨询，记录重要事项并及时传达。办理员工招聘、入职离职手续，管理人事档案，统计考勤及汇总绩效考核。核对审核员工报销费用，维护文件系统，拟定发布通知公告。统筹后勤采买及仓库管理，协助组织团建及各类活动。",
+    tags: ["行政管理", "人事招聘", "财务报销", "后勤统筹"],
     links: [],
   },
 ];
@@ -125,7 +125,7 @@ export const videos = [
     description: "全 AI 生成的怪兽主题动画短片，从分镜到成片完整制作流程，展示 AI 视频生成的叙事能力。",
     thumbnail: null,
     videoUrl: "/uploads/videos/monster-party.mp4",
-    year: "2026",
+    year: "",
     tags: ["AI 动画", "短片", "全流程"],
   },
   {
@@ -134,7 +134,7 @@ export const videos = [
     description: "AI 生成的雅诗兰黛小棕瓶高端品牌广告，从花朵绽放到精华滴落，电影级视觉叙事。",
     thumbnail: null,
     videoUrl: "/uploads/videos/estee-lauder.mp4",
-    year: "2026",
+    year: "",
     tags: ["AI 广告", "品牌", "美妆"],
   },
   {
@@ -143,7 +143,7 @@ export const videos = [
     description: "带有 3D 提拉可视化与淋巴引流动画的产品发布视频，高端后期调色。",
     thumbnail: null,
     videoUrl: null,
-    year: "2025",
+    year: "",
     tags: ["Seedance", "3D", "产品发布"],
   },
   {
@@ -152,7 +152,7 @@ export const videos = [
     description: "针对抖音和小红书优化的短视频系列，AI 辅助剪辑与动态转场。",
     thumbnail: null,
     videoUrl: null,
-    year: "2025",
+    year: "",
     tags: ["短视频", "社交媒体", "AI 剪辑"],
   },
 ];
