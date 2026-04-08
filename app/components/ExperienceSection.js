@@ -1,4 +1,4 @@
-import { experiences, siteConfig } from "@/data/content";
+import { experiences } from "@/data/content";
 
 export default function ExperienceSection() {
   return (
@@ -19,7 +19,9 @@ export default function ExperienceSection() {
                 {exp.title} · <span className="experience__company">{exp.company}</span>
                 <span className="arrow">↗</span>
               </h3>
-              <p className="experience__description">{exp.description}</p>
+              {exp.description.split("\n\n").map((para, j) => (
+                <p key={j} className="experience__description">{para}</p>
+              ))}
               {exp.links && exp.links.length > 0 && (
                 <div className="experience__links">
                   {exp.links.map((link, j) => (
@@ -42,16 +44,7 @@ export default function ExperienceSection() {
           </a>
         ))}
       </div>
-      {siteConfig.resumeUrl && (
-        <a
-          href={siteConfig.resumeUrl}
-          className="resume-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          查看完整简历 <span className="arrow">→</span>
-        </a>
-      )}
+
     </section>
   );
 }

@@ -6,7 +6,7 @@ export const siteConfig = {
   name: "钟志霞",
   title: "求职意向：AI视频创作",
   tagline: "联系电话：15819514582",
-  resumeUrl: "/resume.pdf",
+
   email: "1755721712@qq.com",
 };
 
@@ -18,16 +18,7 @@ export const navItems = [
 ];
 
 export const socialLinks = [
-  {
-    name: "GitHub",
-    url: "https://github.com",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>`,
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>`,
-  },
+
   {
     name: "邮箱",
     url: "mailto:1755721712@qq.com",
@@ -40,21 +31,40 @@ export const socialLinks = [
   },
 ];
 
+export const aboutHighlights = [
+  { value: "1年", label: "AI体系化深训" },
+  { value: "5+", label: "头部政企项目" },
+  { value: "10+", label: "AI工具链精通" },
+  { value: "全链路", label: "独立闭环交付" },
+];
+
 export const aboutContent = [
-  "熟练掌握 Gemini、Nano Banana、即梦等多款 AI 视频生成与大模型工具，能独立完成 AI 短视频从脚本、素材生成到后期剪辑的全流程制作。",
-  "工具上手快、执行力强，做事细心负责，对画面质感与成片效果有明确追求。",
-  "目前可快速到岗，希望在深圳长期稳定从事 AI 视频相关工作，持续深耕并为团队高效产出优质内容。",
+  "2024 年，我加入了由**阿里巴巴 AI 国际金牌导师**李羊城领衔的**『二十四格』AI 商业应用团队**，进行了为期一年的体系化深度学习与实战。该团队深耕 AI 技术三年，业务覆盖 AI 视频、电商、摄影及自媒体等多个领域，先后主导完成**中国邮政**、**广汽丰田**等头部企业的 AI 视频项目。",
+  "在这样一支覆盖全领域的顶尖团队中，我从底层的生图逻辑、光影美学控制到多工具协同，系统完成了**全链条的 AI 技能升级**。同时以独立创作者身份承接商业私单，顺利交付了**《中国邮政 5.10》**、**《中意人寿》**等多个头部政企的 AI 视频项目，积累了扎实的商业化落地经验。",
+  "我熟练掌握当下的核心 AI 工具链：在大模型文本与脚本拆解方面，精通**豆包**、**Gemini**、**Google AI Studio** 以及 **Nano Banana**；在视觉呈现方面，熟练掌握**即梦**、**Seedance**、**可灵**、**椒图**以及 **Flora** 等前沿视频生成模型。能够熟练配合**剪映**进行多轨后期制作，**单兵作战独立完成**高质量 AI 短视频从创意到交付的全链路闭环。",
+  "工具上手快、实操执行力强，做事细心负责，对每一帧的画面质感与最终成片效果有着明确和严苛的追求。",
+  "目前可在**一周内快速到岗**报到。希望能够长期稳定地在深圳从事 AI 视频及视觉相关的核心工作，发挥所长，为团队持续、高效地输出优质且具商业潜力的视觉资产。",
 ];
 
 export const experiences = [
+  {
+    period: "2024.02 — 至今",
+    title: "视频剪辑 / 独立视频制作",
+    company: "汽车自媒体账号",
+    companyUrl: "#",
+    description:
+      "自媒体视频剪辑与发布：主要负责某汽车销售抖音账号（7000+ 粉丝）的日常视频剪辑工作，包含素材粗剪、配乐挑选及字幕制作，并负责每日成片的后台发布。\n\n直播跟播协助：每周参与账号的固定直播活动，在现场协助搭档做好后台画面操作、公屏互动跟进等基础场控与支持工作。\n\n独立 AI 视频商业化交付：在自媒体运营之余，承接各类 AI 商业视频订单。能够直接对接甲方需求，运用豆包/Gemini/Nano banana（脚本撰写）、及即梦/Seedance等生图与视频模型，单人闭环完成从「创意分镜、图片生成」到「后期动效、配音剪辑」的全流程，实现前沿 AI 工具的商业化变现。",
+    tags: ["视频剪辑", "短视频发布", "直播场控", "AI视频制作", "商业交付"],
+    links: [],
+  },
   {
     period: "2022.6 — 2024.2",
     title: "文员",
     company: "易买车汽车销售中心",
     companyUrl: "#",
     description:
-      "负责来访客户接待、咨询及引见工作；根据招聘计划组织开展招聘，办理员工入职、调动、离职手续，录入更新人事档案。统计业务部门人员出勤并报备，汇总、整理、核对考勤资料；负责办公室物品采购及固定资产登记、跟踪管理。",
-    tags: ["客户接待", "人事管理", "考勤统计", "资产管理"],
+      "负责来访客户接待、咨询及引见工作；根据招聘计划组织开展招聘，办理员工入职、调动、离职手续，录入更新人事档案。统计业务部门人员出勤并报备，汇总、整理、核对考勤资料；负责办公室物品采购及固定资产登记、跟踪管理。\n\n此外，还负责公司日常销售活动的视觉设计工作，包括促销海报、展架画面、朋友圈营销图、车型对比图表等物料的设计与排版，熟练使用 Photoshop、Canva 等工具完成从素材筛选、版面构图到输出交付的完整流程，积累了扎实的色彩搭配与版式设计经验。",
+    tags: ["人事管理", "考勤统计", "资产管理", "海报设计", "物料排版", "Photoshop", "视觉设计"],
     links: [],
   },
   {
@@ -63,8 +73,8 @@ export const experiences = [
     company: "花生好车",
     companyUrl: "#",
     description:
-      "负责来访客户接待、登记、引见，介绍相关业务，严格执行接待规范，保持良好礼节礼貌。接听前台热线，做好来电咨询，认真记录重要事项并及时传达。负责公司信件、报刊、快递的收发、登记及转递工作。",
-    tags: ["客户接待", "电话咨询", "行政事务", "信件管理"],
+      "负责来访客户接待、登记、引见及业务介绍，接听前台热线并传达重要事项，收发登记转递公司信件、快递及报刊。",
+    tags: ["客户接待", "前台管理", "信件收发"],
     links: [],
   },
   {
@@ -73,48 +83,42 @@ export const experiences = [
     company: "华益诚资产管理有限公司",
     companyUrl: "#",
     description:
-      "负责前台电话接听、转接及来电咨询，记录重要事项并及时传达。办理员工招聘、入职离职手续，管理人事档案，统计考勤及汇总绩效考核。核对审核员工报销费用，维护文件系统，拟定发布通知公告。统筹后勤采买及仓库管理，协助组织团建及各类活动。",
-    tags: ["行政管理", "人事招聘", "财务报销", "后勤统筹"],
+      "负责前台电话接听转接、咨询传达；办理员工招聘及入离职，管理人事档案、统计考勤绩效；核对报销、维护文件，统筹后勤采买与仓库管理，协助组织活动。",
+    tags: ["行政管理", "人事招聘", "考勤绩效", "后勤统筹"],
     links: [],
   },
 ];
 
 export const projects = [
   {
-    title: "AI 视频制作流水线",
+    title: "中国邮政「5.10 全民邮享日」3D 动画宣传片",
     description:
-      "基于 Seedance 2.0 和 Runway Gen-3 的端到端 AI 视频制作系统。自动化分镜到视频的工作流，优化提示词以产出商业级内容。",
-    image: null, // 替换为真实截图路径
-    tags: ["Seedance", "Runway", "Python", "自动化"],
+      "担任 AI 美术分镜师，参与中国邮政一条 2 分钟 3D 动画广告的前期视觉工作。在长达一个月的商业项目周期中，利用豆包整理剧本需求，再通过即梦生成画面，将导演创意转化为涵盖长城、现代城市、果园摘桃等几十个场景的成熟视觉参考图。期间经历多轮初稿与过稿的反复修改，通过固定参考图设定解决了 AI 生成人物长相不一致的难题，确保主角与邮筒小人在所有场景中形象统一。同时在构图上为动画运动预留空间，严格把控「中国邮政绿」色彩标准，保障后期 3D 合成团队可直接使用素材，最终按节点完成了全部前期成图交付，助力动画顺利定版。",
+    image: "/uploads/videos/china-post-thumbnail.png",
+    videoUrl: "/uploads/videos/china-post-510.mp4",
+    tags: ["AI分镜", "即梦", "豆包", "3D潮玩风格", "商业广告"],
     url: "#",
     featured: true,
   },
   {
-    title: "AI 图像生成平台",
+    title: "中意人寿品牌介绍片 (4K)",
     description:
-      "支持多模型的全栈 AI 图像生成 Web 应用。基于 Next.js + Supabase 构建，部署于 Vercel。",
-    image: null,
-    tags: ["Next.js", "Supabase", "React", "Vercel"],
+      "参与 4K 级商业宣传片制作，主要负责核心 IP 人物的动作设计与视觉生成。通过 AI 工具精准控制 IP 角色在绿幕背景下的肢体连贯性与情绪表现，输出高质量的绿幕动态素材供后期无缝合成，大幅提升了交付效率。",
+    image: "/uploads/videos/ip-lion-thumbnail.jpg",
+    videoUrl: "/uploads/videos/zhongyi-intro.mp4",
+    tags: ["IP动态生成", "绿幕动作", "AI动画", "动作控制"],
     url: "#",
     featured: true,
   },
   {
-    title: "跨境电商品牌站",
+    title: "广电智能客服宣传片 — 开心果 IP",
     description:
-      "面向国际市场的多语言独立电商站。包含产品展示、支付集成与 SEO 优化。",
-    image: null,
-    tags: ["Next.js", "i18n", "Stripe", "SEO"],
+      "负责广电智能客服宣传片中 IP 角色「开心果」的绿幕动态素材制作。根据分镜脚本，使用 AI 工具生成开心果在不同场景下的行走、挥手、坐下、接听电话等多组连贯动作，确保角色姿态自然、表情生动，最终输出高质量绿幕视频素材供后期合成使用。",
+    image: "/uploads/videos/kaixin-guo-thumbnail.png",
+    videoUrl: "/uploads/videos/kaixin-guo-video.mp4",
+    tags: ["IP动态生成", "绿幕动作", "可灵", "动作控制"],
     url: "#",
     featured: true,
-  },
-  {
-    title: "自动化工作流系统",
-    description:
-      "将 AI 工具与业务流程整合的智能自动化系统，实现内容创作、翻译与发布的流水线化。",
-    image: null,
-    tags: ["Node.js", "API 集成", "工作流", "AI"],
-    url: "#",
-    featured: false,
   },
 ];
 
@@ -136,23 +140,6 @@ export const videos = [
     videoUrl: "/uploads/videos/estee-lauder.mp4",
     year: "",
     tags: ["AI 广告", "品牌", "美妆"],
-  },
-  {
-    id: "v3",
-    title: "产品发布 — 3D 可视化",
-    description: "带有 3D 提拉可视化与淋巴引流动画的产品发布视频，高端后期调色。",
-    thumbnail: null,
-    videoUrl: null,
-    year: "",
-    tags: ["Seedance", "3D", "产品发布"],
-  },
-  {
-    id: "v4",
-    title: "社媒短视频集锦",
-    description: "针对抖音和小红书优化的短视频系列，AI 辅助剪辑与动态转场。",
-    thumbnail: null,
-    videoUrl: null,
-    year: "",
-    tags: ["短视频", "社交媒体", "AI 剪辑"],
+    useLastFrame: true,
   },
 ];

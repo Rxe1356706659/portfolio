@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large media files — host externally
+*.mp4
+
+# temp scripts
+*.py

@@ -1,13 +1,13 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Your Name — AI 创意总监",
+  title: "钟志霞 — AI视频创作",
   description:
-    "AI 创意总监，专注于 AI 驱动的视频制作、数字品牌体验与全栈 Web 开发。",
+    "专注于 AI 驱动的视频制作、短视频运营与视觉内容生成。",
   openGraph: {
-    title: "Your Name — AI 创意总监",
+    title: "钟志霞 — AI视频创作",
     description:
-      "AI 创意总监，专注于 AI 驱动的视频制作与数字品牌体验设计。",
+      "专注于 AI 驱动的视频制作、短视频运营与视觉内容生成。",
     type: "website",
   },
 };

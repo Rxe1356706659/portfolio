@@ -14,7 +14,7 @@ export default function ParticleBackground() {
     let mouse = { x: -1000, y: -1000 };
 
     // 粒子配置
-    const PARTICLE_COUNT = 120;
+    const PARTICLE_COUNT = 200;
     const particles = [];
 
     const resize = () => {

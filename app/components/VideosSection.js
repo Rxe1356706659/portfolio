@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { videos } from "@/data/content";
-import VideoModal from "./VideoModal";
+import { useVideoTheater } from "./VideoTheaterContext";
+import VideoThumbnail from "./VideoThumbnail";
 
 export default function VideosSection() {
-  const [activeVideo, setActiveVideo] = useState(null);
+  const { open } = useVideoTheater();
 
   return (
     <section id="videos" className="section">
@@ -15,16 +15,14 @@ export default function VideosSection() {
           <div
             key={video.id}
             className="video__card"
-            onClick={() => setActiveVideo(video)}
+            onClick={() => video.videoUrl && open(video.videoUrl)}
           >
             <div className="video__thumbnail">
               {video.videoUrl ? (
-                <video
+                <VideoThumbnail
                   src={video.videoUrl}
-                  preload="metadata"
-                  muted
-                  playsInline
-                  aria-label={video.title}
+                  alt={video.title}
+                  useLastFrame={video.useLastFrame}
                 />
               ) : video.thumbnail ? (
                 <img src={video.thumbnail} alt={video.title} loading="lazy" />
@@ -54,13 +52,6 @@ export default function VideosSection() {
           </div>
         ))}
       </div>
-
-      {activeVideo && (
-        <VideoModal
-          video={activeVideo}
-          onClose={() => setActiveVideo(null)}
-        />
-      )}
     </section>
   );
 }
