@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>钟志霞 - AI视频创作者 简历</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      color: #333;
+      font-size: 13.5px;
+      line-height: 1.8;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ===== 共用图形与卡片样式 ===== */
+    /* 我们把所有的顶部图案收束到一个锁死的安全框内，绝对防止任何浏览器内核把它“幻影复制”到底部！ */
+    .top-graphics-wrapper {
+      position: absolute; top: 0; left: 0; right: 0; height: 300px;
+      overflow: hidden; z-index: 1; pointer-events: none;
+    }
+    .blob-tl { position: absolute; background: #fde882; border-radius: 50%; }
+    .blob-tr { position: absolute; background: #ffd93b; border-radius: 50%; }
+    
+    .title-pill { 
+      position: absolute; top: 15mm; left: 50%; transform: translate(-50%, -50%); 
+      background: #ffb800; color: #fff; padding: 4px 20px; 
+      border-radius: 20px; font-size: 16px; font-weight: 800; 
+      letter-spacing: 2px; z-index: 20; 
+    }
+
+    /* 模拟白纸卡片的绝对定位背景层 */
+    .resume-card-bg {
+      position: absolute;
+      top: 15mm; left: 15mm; right: 15mm; bottom: 15mm;
+      background: #fff;
+      border: 1px solid #efefef;
+      z-index: 10; /* 层级高于blob，从而遮盖部分blob实现月牙效果 */
+      pointer-events: none;
+    }
+
+    /* ===== 排版表格 ===== */
+    .layout-table { width: 100%; border-collapse: collapse; border: none; position: relative; z-index: 30; }
+    .content-cell { padding: 0; vertical-align: top; }
+
+    /* ===== 屏幕观看模式 ===== */
+    @media screen {
+      body { background: #f0f0f0; padding: 40px 10px; }
+      .print-template { display: none; }
+
+      .screen-document {
+        max-width: 210mm;
+        margin: 0 auto;
+        position: relative;
+        background: #fdfbdf; /* 模拟大底的米黄色纸张 */
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        overflow: hidden; /* 切割彻底超出A4画幅外面的部分 */
+      }
+      
+      .screen-document .blob-tl { top: -120px; left: -80px; width: 350px; height: 350px; }
+      .screen-document .blob-tr { top: -100px; right: -80px; width: 400px; height: 400px; }
+
+      .spacer-top { height: 35mm; } /* 为顶部药丸和间留出空间 */
+      .spacer-bottom { height: 25mm; }
+      .content-cell { padding: 0 25mm; }
+    }
+
+    /* ===== 物理打印模式 ===== */
+    @media print {
+      body { margin: 0; padding: 0; background: transparent; }
+      @page { size: A4; margin: 0; }
+
+      .screen-document {
+        max-width: none; margin: 0; box-shadow: none; background: transparent; overflow: visible;
+      }
+      /* 隐藏屏幕版背景集，使用打印复读模板 */
+      .screen-document > .blob-tl, .screen-document > .blob-tr, .screen-document > .title-pill, .screen-document > .resume-card-bg { display: none; }
+
+      .print-template {
+        display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
+      }
+      .print-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #fdfbdf; }
+      
+      .print-template .top-graphics-wrapper { position: absolute; top: 0; left: 0; right: 0; height: 300px; overflow: hidden; z-index: 1;}
+      .print-template .blob-tl { top: -120px; left: -80px; width: 350px; height: 350px; }
+      .print-template .blob-tr { top: -100px; right: -80px; width: 400px; height: 400px; }
+
+      thead { display: table-header-group; }
+      tfoot { display: table-footer-group; }
+      .spacer-top { height: 35mm; }
+      .spacer-bottom { height: 25mm; }
+      .content-cell { padding: 0 25mm; }
+    }
+
+
+    /* ===== 正文的具体排版 ===== */
+    .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1.5px solid #ffb800; }
+    .header-profile { display: flex; align-items: center; gap: 20px; }
+    .profile-info { display: flex; flex-direction: column; justify-content: center; }
+    .name-line { display: flex; align-items: baseline; gap: 15px; margin-bottom: 8px; }
+    .name-line h1 { font-size: 36px; font-weight: 800; letter-spacing: 3px; color: #222; line-height: 1; }
+    .name-line .subtitle { font-size: 15px; font-weight: 600; color: #666; }
+    .contact-row { display: grid; grid-template-columns: 85px 125px auto; gap: 10px; font-size: 13px; color: #555; margin-bottom: 5px; white-space: nowrap; }
+    
+    .header-right { display: flex; align-items: center; flex-shrink: 0; gap: 10px; }
+    .photo-placeholder, .qrcode-placeholder {
+      border: 1.5px dashed #ccc; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #999; font-size: 10px; text-align: center; border-radius: 3px; background: #fafafa;
+    }
+    .photo-placeholder { width: 25mm; height: 35mm; }
+    .qrcode-placeholder { width: 25mm; height: 25mm; margin-bottom: 10px; }
+
+    .section { margin-bottom: 20px; }
+    .section-title { font-size: 15.5px; font-weight: 800; color: #333; display: flex; align-items: center; margin-bottom: 12px; }
+    .section-icon { position: relative; width: 22px; height: 16px; margin-right: 8px; }
+    .circle-filled { width: 14px; height: 14px; background: #ffb800; border-radius: 50%; position: absolute; left: 0; z-index: 1; }
+    .circle-outlined { width: 14px; height: 14px; border: 2px solid #ffb800; background: #fff; border-radius: 50%; position: absolute; left: 7px; z-index: 2; }
+    .section-line { flex: 1; height: 2.5px; background: #ffb800; border-radius: 2px; margin-left: 10px; }
+
+    .summary { font-size: 13.5px; color: #444; line-height: 1.8; text-align: justify; }
+
+    .skills-list { list-style: none; }
+    .skills-list li { font-size: 13.5px; color: #444; margin-bottom: 8px; line-height: 1.8; text-align: justify; }
+    .skills-list li strong { color: #222; }
+
+    .exp-item { margin-bottom: 18px; page-break-inside: avoid; break-inside: avoid; }
+    .exp-title { font-size: 14px; font-weight: 700; color: #222; display: flex; align-items: baseline; gap: 15px; margin-bottom: 6px; }
+    .exp-period { font-weight: 400; color: #666; width: 130px; flex-shrink: 0; }
+    .company { font-weight: 400; color: #555; }
+
+    .exp-details { list-style: none; }
+    .exp-details li { font-size: 13.5px; color: #444; line-height: 1.8; margin-bottom: 6px; text-align: justify; }
+    .exp-details li strong { color: #222; }
+
+    .proj-item { margin-bottom: 18px; page-break-inside: avoid; break-inside: avoid;}
+    .proj-title { font-size: 14px; font-weight: 700; color: #222; margin-bottom: 6px;}
+    .role { font-weight: 500; color: #555; }
+
+    .proj-details { list-style: none;}
+    .proj-details li { font-size: 13.5px; color: #444; line-height: 1.8; margin-bottom: 6px; text-align: justify; }
+
+    .edu-school { font-size: 14px; font-weight: 700; display: flex; align-items: baseline; gap: 15px; page-break-inside: avoid; break-inside: avoid;}
+    .edu-period { font-weight: 400; color: #666; width: 130px; flex-shrink: 0;}
+    .major { font-weight: 400; color: #555; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== 打印时的底层复印板 ===== -->
+  <div class="print-template">
+    <div class="print-bg"></div>
+    <div class="top-graphics-wrapper">
+      <div class="blob-tl"></div>
+      <div class="blob-tr"></div>
+    </div>
+    <div class="resume-card-bg"></div> <!-- 白板层会盖住部分黄线 -->
+    <div class="title-pill">个人简历</div>
+  </div>
+
+  <div class="screen-document">
+    <!-- ===== 屏幕上的底层装饰与白卡片 ===== -->
+    <div class="top-graphics-wrapper">
+      <div class="blob-tl"></div>
+      <div class="blob-tr"></div>
+    </div>
+    <div class="resume-card-bg"></div> <!-- 还原！卡片层重新上位 -->
+    <div class="title-pill">个人简历</div>
+
+    <!-- ===== 流式表格，利用引擎自动换页 ===== -->
+    <table class="layout-table">
+      <thead><tr><td class="spacer-top"></td></tr></thead>
+      
+      <tbody><tr><td class="content-cell">
+        <!-- 内容层：自然流通，永远跟随页面，不会溢出被遮挡！且确保了文案 100% 不变 -->
+
+        <div class="header">
+          <div class="header-profile">
+            <div class="photo-placeholder"><span>一寸</span><span>职业近照</span></div>
+            <div class="profile-info">
+              <div class="name-line">
+                <h1>钟志霞</h1>
+                <span class="subtitle">求职意向：AI视频创作者</span>
+              </div>
+              <div class="contact-row">
+                <span class="info-col">民族：汉族</span>
+                <span class="info-col">籍贯：广东惠州</span>
+                <span class="info-col">电话：15819514582</span>
+              </div>
+              <div class="contact-row">
+                <span class="info-col">学历：大专</span>
+                <span class="info-col">生日：95年8月</span>
+                <span class="info-col">邮箱：1755721712@qq.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="header-right">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <img src="./qrcode.png" alt="作品集二维码" style="width: 25mm; height: 25mm; border-radius: 5px; border: 1.5px solid #eee; padding: 2px; background: white;" onerror="this.outerHTML='<div class=\'qrcode-placeholder\'><span>放置同级<br>qrcode.png</span></div>'" />
+              <div class="qr-label" style="font-size: 10.5px; color: #777; margin-top: 5px; font-weight: 500;">扫码看作品</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">
+            <div class="section-icon"><div class="circle-filled"></div><div class="circle-outlined"></div></div>
+            个人总结
+            <div class="section-line"></div>
+          </div>
+          <div class="summary">
+            我是一个懂技术、能真正把 AI 转化为实际生产力的全能型视频创意者。我不仅能熟练运用市面前沿的 AI 生图与视频软件（如即梦、可灵等）独立完成高水准的短视频制作，还具备技术自驱力。在零代码基础的情况下，我依靠与 AI 代码助手进行对话和结提示工作，成功独立搭建并上线了具有设计感的个人网页作品集。相比传统的视频剪辑流程，我擅长利用强大的 AI 杠杆，高效统筹并完成从文案脚本、素材生成到后期成片落地的所有闭环工作。
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">
+            <div class="section-icon"><div class="circle-filled"></div><div class="circle-outlined"></div></div>
+            核心技能
+            <div class="section-line"></div>
+          </div>
+          <ul class="skills-list">
+            <li><strong>AI 视频与图片生成：</strong>熟练运用即梦、可灵 (Kling)、Seedance、椒图、Flora 等领先的 AI 软件。擅长构建高精度的"提示词 (Prompt)"，能将抽象创意转化为清晰指令，快速生成可直接用于商业传播的高质量视频素材。</li>
+            <li><strong>AI 文案撰写与工作流推演：</strong>日常使用豆包、Gemini、Google AI Studio、Nano Banana 等 AI 大语言助手，辅助撰写短视频脚本分镜、提取营销灵感及推演逻辑架构，有效缩短前期脑力劳动时间。</li>
+            <li><strong>独立剪辑成片与工程思维：</strong>熟练操作剪映，完成后期剪辑并交付成片。具备过硬的"AI 对话工程能力"，即使在不写代码的情况下，也能全程指挥 AI 助手从零到一部署具有现代美学的个人网站，属于少有的具备工程底层思维的创意人。</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <div class="section-title">
+            <div class="section-icon"><div class="circle-filled"></div><div class="circle-outlined"></div></div>
+            工作经历
+            <div class="section-line"></div>
+          </div>
+          
+          <div class="exp-item">
+            <div class="exp-title">
+              <span class="exp-period">2024.02 – 至今</span>
+              <span>视频剪辑 / 独立视频制作 <span class="company">| 汽车自媒体账号</span></span>
+            </div>
+            <ul class="exp-details">
+              <li><strong>自媒体视频剪辑与发布：</strong>主要负责某汽车销售抖音账号（7000+ 粉丝）的日常视频剪辑工作，包含素材粗剪、配乐挑选及字幕制作，并负责每日成片的后台发布。</li>
+              <li><strong>直播跟播协助：</strong>每周参与账号的固定直播活动，在现场协助搭档做好后台画面操作、公屏互动跟进等基础场控与支持工作。</li>
+              <li><strong>独立 AI 视频商业化交付：</strong>在自媒体运营之余，承接各类 AI 商业视频订单。能够直接对接甲方需求，运用豆包/Gemini/Nano banana（脚本撰写）及即梦/Seedance等生图与视频模型，单人闭环完成从「创意分镜、图片生成」到「后期动效、配音剪辑」的全流程，实现前沿 AI 工具的商业化变现。</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-title">
+              <span class="exp-period">2022.06 – 2024.02</span>
+              <span>文员 <span class="company">| 易买车汽车销售中心</span></span>
+            </div>
+            <ul class="exp-details">
+              <li>负责来访客户接待、咨询及引见；组织招聘，办理员工入离职手续，录入更新人事档案；统计考勤并报备，负责办公物品采购及固定资产登记与跟踪管理。</li>
+              <li>负责公司日常销售活动的视觉设计，包括促销海报、展架画面、朋友圈营销图等物料的设计与排版，熟练使用 Photoshop、Canva 完成从素材筛选到输出交付的完整流程。</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-title">
+              <span class="exp-period">2019.08 – 2022.05</span>
+              <span>前台 <span class="company">| 花生好车</span></span>
+            </div>
+            <ul class="exp-details">
+              <li>负责来访客户接待、登记、引见及业务介绍，接听前台热线并传达重要事项，收发登记转递公司信件、快递及报刊。</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-title">
+              <span class="exp-period">2016.11 – 2019.06</span>
+              <span>行政助理 <span class="company">| 华益诚资产管理有限公司</span></span>
+            </div>
+            <ul class="exp-details">
+              <li>负责前台电话接听转接、咨询传达；办理员工招聘及入离职，管理人事档案、统计考勤绩效；核对报销、维护文件，统筹后勤采买与仓库管理，协助组织活动。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">
+            <div class="section-icon"><div class="circle-filled"></div><div class="circle-outlined"></div></div>
+            项目经历
+            <div class="section-line"></div>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-title">中国邮政「5.10」3D 动画宣传片 <span class="role">| AI 美术分镜师</span></div>
+            <ul class="proj-details">
+              <li>参与 2 分钟大型商业宣传片前期视觉建设。利用【豆包】拆分剧本需求，通过【即梦】跑通涵盖长城、果园、城市等数十个复杂场景的视觉参考出图。</li>
+              <li>攻克 AI 作图"人物连贯性差"的行业通病，通过严格控制参考图参数，确保主角在不同运镜中形象一致。精准还原"中国邮政绿"品牌标准，按节点完成全部交付。</li>
+            </ul>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-title">中意人寿 &amp; 广电智能品牌片 <span class="role">| IP 动作绿幕统筹</span></div>
+            <ul class="proj-details">
+              <li>主导两支 4K 级商业大片中核心品牌 IP 的动态生成与绿幕动作设定。通过【可灵】生成主角走路、挥手及面部微表情等连贯动作，替代传统 3D 逐帧动画流程。</li>
+              <li>直接产出干净的绿幕原素材供后期无缝抠像合成，大幅缩短了整条商业片的制作时间和费用成本。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">
+            <div class="section-icon"><div class="circle-filled"></div><div class="circle-outlined"></div></div>
+            教育经历
+            <div class="section-line"></div>
+          </div>
+          <div class="edu-school">
+            <span class="edu-period">2014.09 – 2017.06</span>
+            <span>罗定职业技术学院 <span class="major">| 商务英语</span></span>
+          </div>
+        </div>
+
+      </td></tr></tbody>
+
+      <tfoot><tr><td class="spacer-bottom"></td></tr></tfoot>
+    </table>
+  </div>
+
+</body>
+</html>

@@ -142,4 +142,13 @@ export const videos = [
     tags: ["AI 广告", "品牌", "美妆"],
     useLastFrame: true,
   },
+  {
+    id: "v3",
+    title: "兰博基尼 — AI 汽车 TVC",
+    description: "AI 生成的兰博基尼品牌 TVC 广告，展现超跑的速度与力量美学，电影级光影与动态呈现。",
+    thumbnail: null,
+    videoUrl: "/uploads/videos/lamborghini-tvc.mp4",
+    year: "",
+    tags: ["AI 广告", "汽车", "TVC"],
+  },
 ];
