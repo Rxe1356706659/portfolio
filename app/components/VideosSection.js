@@ -18,14 +18,14 @@ export default function VideosSection() {
             onClick={() => video.videoUrl && open(video.videoUrl)}
           >
             <div className="video__thumbnail">
-              {video.videoUrl ? (
+              {video.thumbnail ? (
+                <img src={video.thumbnail} alt={video.title} loading="lazy" />
+              ) : video.videoUrl ? (
                 <VideoThumbnail
                   src={video.videoUrl}
                   alt={video.title}
                   useLastFrame={video.useLastFrame}
                 />
-              ) : video.thumbnail ? (
-                <img src={video.thumbnail} alt={video.title} loading="lazy" />
               ) : (
                 <span className="video__thumbnail-placeholder">🎬</span>
               )}
