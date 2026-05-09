@@ -1,8 +1,36 @@
 "use client";
 
 import { videos } from "@/data/content";
+import { useState } from "react";
 import { useVideoTheater } from "./VideoTheaterContext";
 import VideoThumbnail from "./VideoThumbnail";
+
+function VideoPoster({ video }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  if (video.thumbnail && !imageFailed) {
+    return (
+      <img
+        src={video.thumbnail}
+        alt={video.title}
+        loading="lazy"
+        onError={() => setImageFailed(true)}
+      />
+    );
+  }
+
+  if (video.videoUrl) {
+    return (
+      <VideoThumbnail
+        src={video.videoUrl}
+        alt={video.title}
+        useLastFrame={video.useLastFrame}
+      />
+    );
+  }
+
+  return <span className="video__thumbnail-placeholder">🎬</span>;
+}
 
 export default function VideosSection() {
   const { open } = useVideoTheater();
@@ -18,17 +46,7 @@ export default function VideosSection() {
             onClick={() => video.videoUrl && open(video.videoUrl)}
           >
             <div className="video__thumbnail">
-              {video.thumbnail ? (
-                <img src={video.thumbnail} alt={video.title} loading="lazy" />
-              ) : video.videoUrl ? (
-                <VideoThumbnail
-                  src={video.videoUrl}
-                  alt={video.title}
-                  useLastFrame={video.useLastFrame}
-                />
-              ) : (
-                <span className="video__thumbnail-placeholder">🎬</span>
-              )}
+              <VideoPoster video={video} />
               <div className="video__play-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

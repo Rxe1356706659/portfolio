@@ -147,6 +147,7 @@ export const videos = [
     description: "围绕办公室咖啡场景制作的 AI 产品广告，呈现袋泡咖啡从冲泡到饮用的完整质感与商业画面。",
     thumbnail: "/uploads/videos/ne-coffee-office-ad-thumb.jpg",
     videoUrl: "/uploads/videos/ne-coffee-office-ad.mp4",
+    useLastFrame: true,
     year: "",
     tags: ["AI 广告", "咖啡", "Seedance"],
   },
