@@ -143,6 +143,15 @@ export const videos = [
   },
   {
     id: "v3",
+    title: "NE 袋泡咖啡 — AI 产品广告",
+    description: "围绕办公室咖啡场景制作的 AI 产品广告，呈现袋泡咖啡从冲泡到饮用的完整质感与商业画面。",
+    thumbnail: "/uploads/videos/ne-coffee-office-ad-thumb.jpg",
+    videoUrl: "/uploads/videos/ne-coffee-office-ad.mp4",
+    year: "",
+    tags: ["AI 广告", "咖啡", "Seedance"],
+  },
+  {
+    id: "v4",
     title: "兰博基尼 — AI 汽车 TVC",
     description: "AI 生成的兰博基尼品牌 TVC 广告，展现超跑的速度与力量美学，电影级光影与动态呈现。",
     thumbnail: "/uploads/videos/lamborghini-tvc-thumb.jpg",
@@ -151,7 +160,7 @@ export const videos = [
     tags: ["AI 广告", "汽车", "TVC"],
   },
   {
-    id: "v4",
+    id: "v5",
     title: "静夜思 — AI 古诗词动画",
     description: "以李白经典古诗《静夜思》为蓝本，通过 AI 视频生成技术将诗词意境转化为电影级视觉画面，呈现月光、思乡等东方美学元素。",
     thumbnail: "/uploads/videos/jingye-si-thumb.jpg",
