@@ -153,6 +153,15 @@ export const videos = [
   },
   {
     id: "v4",
+    title: "假睫毛 — AI 美妆产品广告",
+    description: "AI 生成的假睫毛产品广告，展现睫毛的纤细质感与佩戴效果，精致微距视觉呈现。",
+    thumbnail: "/uploads/videos/fake-eyelash-thumb.jpg",
+    videoUrl: "/uploads/videos/fake-eyelash.mp4",
+    year: "",
+    tags: ["AI 广告", "美妆", "产品"],
+  },
+  {
+    id: "v5",
     title: "兰博基尼 — AI 汽车 TVC",
     description: "AI 生成的兰博基尼品牌 TVC 广告，展现超跑的速度与力量美学，电影级光影与动态呈现。",
     thumbnail: "/uploads/videos/lamborghini-tvc-thumb.jpg",
@@ -161,7 +170,7 @@ export const videos = [
     tags: ["AI 广告", "汽车", "TVC"],
   },
   {
-    id: "v5",
+    id: "v6",
     title: "静夜思 — AI 古诗词动画",
     description: "以李白经典古诗《静夜思》为蓝本，通过 AI 视频生成技术将诗词意境转化为电影级视觉画面，呈现月光、思乡等东方美学元素。",
     thumbnail: "/uploads/videos/jingye-si-thumb.jpg",
