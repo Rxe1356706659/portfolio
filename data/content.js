@@ -94,7 +94,7 @@ export const projects = [
     title: "中国邮政「5.10 全民邮享日」3D 动画宣传片",
     description:
       "担任 AI 美术分镜师，参与中国邮政一条 2 分钟 3D 动画广告的前期视觉工作。在长达一个月的商业项目周期中，利用豆包整理剧本需求，再通过即梦生成画面，将导演创意转化为涵盖长城、现代城市、果园摘桃等几十个场景的成熟视觉参考图。期间经历多轮初稿与过稿的反复修改，通过固定参考图设定解决了 AI 生成人物长相不一致的难题，确保主角与邮筒小人在所有场景中形象统一。同时在构图上为动画运动预留空间，严格把控「中国邮政绿」色彩标准，保障后期 3D 合成团队可直接使用素材，最终按节点完成了全部前期成图交付，助力动画顺利定版。",
-    image: "/uploads/videos/china-post-thumbnail.png",
+    image: "/uploads/videos/china-post-thumbnail-new.jpg",
     videoUrl: "/uploads/videos/china-post-510.mp4",
     tags: ["AI分镜", "即梦", "豆包", "3D潮玩风格", "商业广告"],
     url: "#",
@@ -114,7 +114,7 @@ export const projects = [
     title: "广电智能客服宣传片 — 开心果 IP",
     description:
       "负责广电智能客服宣传片中 IP 角色「开心果」的绿幕动态素材制作。根据分镜脚本，使用 AI 工具生成开心果在不同场景下的行走、挥手、坐下、接听电话等多组连贯动作，确保角色姿态自然、表情生动，最终输出高质量绿幕视频素材供后期合成使用。",
-    image: "/uploads/videos/kaixin-guo-thumbnail.png",
+    image: "/uploads/videos/kaixin-guo-thumbnail-new.jpg",
     videoUrl: "/uploads/videos/kaixin-guo-video.mp4",
     tags: ["IP动态生成", "绿幕动作", "可灵", "动作控制"],
     url: "#",
